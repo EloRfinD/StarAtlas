@@ -1,0 +1,24 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>StarAtlas</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    {{#stars}}
+        {{#.}}
+            {{#info}}
+                <div>{{.}}</div>
+            {{/info}}
+            <div><a href="/staratlas/{{id}}">Инфо</a></div>
+        {{/.}}
+    {{/stars}}
+    <div>
+        <form method="post">
+            <input type="text" name="name" placeholder="Enter name of star" />
+            <button type="submit">Enter</button>
+        </form>
+    </div>
+</body>
+</html>

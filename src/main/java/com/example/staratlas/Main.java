@@ -144,16 +144,16 @@ public class Main extends JFrame implements MouseMotionListener, MouseWheelListe
                         // Разбор ответа JSON и извлечение координат МКС без использования библиотеки JSON
                         String responseString = response.toString();
                         int latIndex = responseString.indexOf("\"latitude\": \"") + "\"latitude\": \"".length();
-                        int latEndIndex = responseString.indexOf(",", latIndex);
+                        int latEndIndex = responseString.indexOf("\"", latIndex);
                         double latitude = Double.parseDouble(responseString.substring(latIndex, latEndIndex).replace("\"",""));
 
                         int lonIndex = responseString.indexOf("\"longitude\": \"") + "\"longitude\": \"".length();
-                        int lonEndIndex = responseString.indexOf("}", lonIndex);
+                        int lonEndIndex = responseString.indexOf("\"", lonIndex);
                         double longitude = Double.parseDouble(responseString.substring(lonIndex, lonEndIndex).replace("\"",""));
 
                         // Обновление позиции МКС на карте
                         double gmst = ISS.GMST();
-                        //System.out.println(longitude+" "+gmst);
+                        System.out.println(longitude+" "+gmst);
                         iss.setRightAscension(-longitude-gmst);
                         iss.setDeclination(latitude);
                         System.out.println(iss.getRightAscension()+" "+iss.getDeclination());

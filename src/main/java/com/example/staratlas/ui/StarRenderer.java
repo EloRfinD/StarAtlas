@@ -64,7 +64,7 @@ public class StarRenderer {
             newRa += 360;
         }
 
-        // Calculate position on screen based on new right ascension and declination
+        //Вычисление позиции звезд, основанное на новых склонении и прямом восхождении
         return new Point(scX, scY);
     }
 }
